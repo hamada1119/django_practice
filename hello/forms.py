@@ -1,13 +1,12 @@
 from django import forms
 from django.forms import widgets
 from django.forms.fields import CharField
-from django import forms
 from django.forms.widgets import CheckboxInput
 from .models import Friend
 from .models import Friend,Message
 
 
-class MessageForm(forms.modelForm):
+class MessageForm(forms.Form):
     class Meta:
         model = Message
         fields = ['title','content','friend']
@@ -70,7 +69,7 @@ class HelloForm(forms.Form):
         choices=data,widget=forms.SelectMultiple(attrs={'size' : 6}))
 """
 
-"""""
+"""
 class HelloForm(forms.Form):
     name = forms.CharField(label='name',\
         widget=forms.TextInput(attrs={'class':'form-control'}))
